@@ -1,7 +1,12 @@
 version: 0.0
 os: linux
+files:
+  - source: ./
+    destination: /home/ec2-user/test
 hooks:
   ApplicationStop:
     - location: kill_process.sh
+      runas: ec2-user
   ApplicationStart:
     - location: run_process.sh
+      runas: ec2-user

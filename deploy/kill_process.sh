@@ -1,3 +1,9 @@
 #!/bin/bash
+echo 'kill process'
+PID=$(lsof -t -i:9918)
+if [ ! -z "$PID" ]; then
+  echo 'kill' $PID
+  kill $PID
+fi
 
-kill $(lsof -t -i:9918)
+echo 'kill process done'
