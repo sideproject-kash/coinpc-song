@@ -47,4 +47,8 @@ jobs:
       - name: Upload to S3
         run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://coinpc-deploy/$GITHUB_SHA.zip
 
+      - name: Code Deploy
+        run: aws deploy create-deployment --application-name coinpc --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name coinpc-main --s3-location bucket=coinpc-deploy,bundleType=zip,key=$GITHUB_SHA.zip
+
+
 
