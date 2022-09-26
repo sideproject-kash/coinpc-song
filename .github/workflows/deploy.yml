@@ -50,5 +50,10 @@ jobs:
       - name: Code Deploy
         run: aws deploy create-deployment --application-name coinpc --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name coinpc-main --s3-location bucket=coinpc-deploy,bundleType=zip,key=$GITHUB_SHA.zip
 
+      - name: curl for test
+        uses: wei/curl@master
+        with:
+          args: http://ec2-3-34-124-201.ap-northeast-2.compute.amazonaws.com:9918/test
+
 
 
