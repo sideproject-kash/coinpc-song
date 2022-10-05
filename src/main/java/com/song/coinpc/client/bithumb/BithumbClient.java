@@ -47,7 +47,6 @@ public class BithumbClient {
                                .retrieve()
                                .bodyToMono(
                                    new ParameterizedTypeReference<BithumbResponse<BithumbPriceInfos>>() {})
-//                                  .bodyToMono(String.class)
                                .block();
     }
 
