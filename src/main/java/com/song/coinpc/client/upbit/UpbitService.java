@@ -11,7 +11,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.song.coinpc.client.CoinMarketService;
 import com.song.coinpc.client.dto.CoinInfo;
 import com.song.coinpc.client.dto.CoinInfos;
+import com.song.coinpc.client.upbit.utils.UpbitUtils;
 import com.song.coinpc.common.enums.MarketType;
+import com.song.coinpc.common.enums.PaymentCurrencyType;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +27,8 @@ public class UpbitService implements CoinMarketService {
     public CoinInfos findCoinInfos() {
 
         List<String> markets = Arrays.stream(MarketType.values())
-                                     .map(MarketType::getCode)
+                                     .filter(it -> it != MarketType.NOT_KNOWN)
+                                     .map(marketType -> UpbitUtils.makeUpbitMarketStr(PaymentCurrencyType.KRW, marketType))
                                      .collect(Collectors.toList());
 
         Map<MarketType, CoinInfo> coinInfoMap = upbitClient.getPriceInfo(markets)

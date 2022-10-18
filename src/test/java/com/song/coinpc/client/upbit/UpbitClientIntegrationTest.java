@@ -32,7 +32,7 @@ class UpbitClientIntegrationTest {
 
     @Test
     void getPriceInfo() {
-        List<UpbitPriceInfo> upbitPriceInfos = upbitClient.getPriceInfo(List.of("KRW-BTC", "BTC-ETH"));
+        List<UpbitPriceInfo> upbitPriceInfos = upbitClient.getPriceInfo(List.of("KRW-BTC", "KRW-ETH"));
 
         log.info("test : {}", upbitPriceInfos.get(0).toString());
         log.info("test : {}", upbitPriceInfos.get(1).toString());
