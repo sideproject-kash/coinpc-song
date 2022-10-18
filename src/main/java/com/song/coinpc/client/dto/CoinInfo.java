@@ -2,6 +2,7 @@ package com.song.coinpc.client.dto;
 
 import java.math.BigDecimal;
 
+import com.song.coinpc.client.bithumb.dto.BithumbPriceInfo;
 import com.song.coinpc.client.upbit.dto.UpbitPriceInfo;
 
 import lombok.Builder;
@@ -21,4 +22,9 @@ public class CoinInfo {
                         .build();
     }
 
+    public static CoinInfo from(BithumbPriceInfo bithumbPriceInfo) {
+        return builder().tradePrice(bithumbPriceInfo.getClosingPrice())
+                        .tradeVolume(bithumbPriceInfo.getAccTradeValue())
+                        .build();
+    }
 }
