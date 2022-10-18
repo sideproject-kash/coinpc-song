@@ -3,6 +3,8 @@ package com.song.coinpc.client.dto;
 import java.util.List;
 import java.util.Map;
 
+import com.song.coinpc.common.enums.MarketType;
+
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,5 +12,5 @@ import lombok.Getter;
 @Builder
 public class CoinInfos {
 
-    private Map<String, CoinInfo> coinInfoMap; // key: Market Code
+    private Map<MarketType, CoinInfo> coinInfoMap; // key: Market Code
 }
