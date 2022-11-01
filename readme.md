@@ -9,6 +9,9 @@
 ## 배포하기
 - deploy dir의 파일 4개 (appspec.yml, jar, kill.sh, run.sh)를 압축해서 Amazone s3에 올린다.
 
+## ref
+upbit: https://docs.upbit.com/reference/ticker%ED%98%84%EC%9E%AC%EA%B0%80-%EC%A0%95%EB%B3%B4
+bithumb:
 
 ## backlog
 [] log파일 rolling 및 파일 위치 설정

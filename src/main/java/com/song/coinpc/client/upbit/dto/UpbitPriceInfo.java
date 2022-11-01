@@ -16,7 +16,8 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PriceInfo {
+@ToString
+public class UpbitPriceInfo {
 
     @JsonProperty("market")
     private String market;

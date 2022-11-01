@@ -1,7 +1,5 @@
 package com.song.coinpc.client.upbit;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -9,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.song.coinpc.client.upbit.dto.MarketInfo;
-import com.song.coinpc.client.upbit.dto.PriceInfo;
-import com.song.coinpc.client.upbit.dto.PriceInfos;
+import com.song.coinpc.client.upbit.dto.UpbitPriceInfo;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -35,10 +32,10 @@ class UpbitClientIntegrationTest {
 
     @Test
     void getPriceInfo() {
-        List<PriceInfo> priceInfos = upbitClient.getPriceInfo(List.of("KRW-BTC", "BTC-ETH"));
+        List<UpbitPriceInfo> upbitPriceInfos = upbitClient.getPriceInfo(List.of("KRW-BTC", "KRW-ETH"));
 
-        log.info("test : {}", priceInfos.get(0).toString());
-        log.info("test : {}", priceInfos.get(1).toString());
+        log.info("test : {}", upbitPriceInfos.get(0).toString());
+        log.info("test : {}", upbitPriceInfos.get(1).toString());
 
     }
 
