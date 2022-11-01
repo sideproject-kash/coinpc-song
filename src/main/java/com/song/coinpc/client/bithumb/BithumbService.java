@@ -14,6 +14,7 @@ import com.song.coinpc.client.bithumb.dto.BithumbResponse;
 import com.song.coinpc.client.dto.CoinInfo;
 import com.song.coinpc.client.dto.CoinInfos;
 import com.song.coinpc.client.upbit.utils.UpbitUtils;
+import com.song.coinpc.common.enums.CoinClientType;
 import com.song.coinpc.common.enums.MarketType;
 import com.song.coinpc.common.enums.PaymentCurrencyType;
 
@@ -27,10 +28,6 @@ public class BithumbService implements CoinMarketService {
 
     @Override
     public CoinInfos findCoinInfos() {
-        List<String> markets = Arrays.stream(MarketType.values())
-                                     .filter(it -> it != MarketType.NOT_KNOWN)
-                                     .map(marketType -> UpbitUtils.makeUpbitMarketStr(PaymentCurrencyType.KRW, marketType))
-                                     .collect(Collectors.toList());
 
         BithumbResponse<BithumbPriceInfos> allPriceInfo = bithumbClient.getAllPriceInfo(PaymentCurrencyType.KRW);
 
@@ -51,5 +48,10 @@ public class BithumbService implements CoinMarketService {
         return CoinInfos.builder()
                         .coinInfoMap(coinInfoMap)
                         .build();
+    }
+
+    @Override
+    public CoinClientType getCoinClientType() {
+        return CoinClientType.BITHUMB;
     }
 }
