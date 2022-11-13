@@ -15,6 +15,8 @@ import lombok.Getter;
 @Builder
 public class PriceCompareResult {
 
+    private static final BigDecimal DIFF_STANDARD = new BigDecimal("0.1");
+
     private MarketType marketType;
 
     private PaymentCurrencyType paymentCurrencyType;
@@ -25,7 +27,9 @@ public class PriceCompareResult {
 
     private MarketPriceInfo biggerPriceMarketInfo;
 
-
+    public boolean isBigDiff() {
+        return DIFF_STANDARD.compareTo(diffPercentage) < 0;
+    }
 
     public static PriceCompareResult from(MarketType marketType, PaymentCurrencyType paymentCurrencyType, CoinInfo upbitCoinInfo, CoinInfo bithumbCoinInfo) {
         MarketPriceInfo upbitMarketPriceInfo = MarketPriceInfo.from(CoinClientType.UPBIT, upbitCoinInfo);
