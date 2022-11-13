@@ -31,7 +31,7 @@ public class BithumbService implements CoinMarketService {
 
         BithumbResponse<BithumbPriceInfos> allPriceInfo = bithumbClient.getAllPriceInfo(PaymentCurrencyType.KRW);
 
-        if (!"OK".equals(allPriceInfo.getStatus())) { // TODO: fix to ENUM
+        if (!"0000".equals(allPriceInfo.getStatus())) { // TODO: fix to ENUM
             throw new RuntimeException("bithumb response error");
         }
 

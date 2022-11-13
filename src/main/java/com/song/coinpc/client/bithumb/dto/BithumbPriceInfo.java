@@ -18,7 +18,6 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class BithumbPriceInfo {
 
     @JsonProperty("opening_price")

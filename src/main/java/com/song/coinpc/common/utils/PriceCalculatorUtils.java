@@ -21,6 +21,6 @@ public final class PriceCalculatorUtils {
             target = amount1;
         }
 
-        return BigDecimal.ONE.subtract(target.divide(base, RoundingMode.DOWN));
+        return BigDecimal.ONE.subtract(target.divide(base, 3, RoundingMode.DOWN));
     }
 }

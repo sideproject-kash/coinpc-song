@@ -1,5 +1,7 @@
 package com.song.coinpc.client;
 
+import java.util.List;
+
 public interface MessageService {
-    void sendMessage(String message);
+    void sendMessage(List<String> messages);
 }

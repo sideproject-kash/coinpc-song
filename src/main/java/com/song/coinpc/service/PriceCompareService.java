@@ -19,7 +19,9 @@ import com.song.coinpc.common.enums.PaymentCurrencyType;
 import com.song.coinpc.service.vo.PriceCompareResult;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class PriceCompareService {
@@ -37,6 +39,8 @@ public class PriceCompareService {
         CoinInfos bithumbCoinInfos = coinMarketServiceMap.get(CoinClientType.BITHUMB).findCoinInfos();
         CoinInfos upbitCoinInfos = coinMarketServiceMap.get(CoinClientType.UPBIT).findCoinInfos();
 
+        log.info("bithumbCoinInfos: {}", bithumbCoinInfos);
+        log.info("upbitCoinInfos: {}", upbitCoinInfos);
         return getPriceCompareResult(bithumbCoinInfos, upbitCoinInfos);
 
     }

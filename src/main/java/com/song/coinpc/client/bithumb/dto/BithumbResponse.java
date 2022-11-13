@@ -16,7 +16,6 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class BithumbResponse<T> {
 
     @JsonProperty("status")
