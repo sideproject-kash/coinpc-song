@@ -1,8 +1,10 @@
 package com.song.coinpc.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import com.song.coinpc.service.vo.PriceCompareResult;
+import com.song.coinpc.client.MessageService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +14,18 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class PriceDiffMessageService {
 
-    public void sendPriceDiffMessage(PriceCompareResult priceCompareResult) {
-        log.info("sendPriceDiffMessage: {}", priceCompareResult);
+    private final MessageService lineMessageService;
+
+    public void sendPriceDiffMessage(List<String> messages) {
+
+        StringBuilder sb = new StringBuilder();
+
+        messages.forEach(it -> {
+            sb.append(it);
+            sb.append('\n');
+            sb.append('\n');
+        });
+
+        lineMessageService.sendMessage(List.of(sb.toString()));
     }
 }

@@ -10,12 +10,13 @@ import com.song.coinpc.common.utils.PriceCalculatorUtils;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
 @Builder
 public class PriceCompareResult {
 
-    private static final BigDecimal DIFF_STANDARD = new BigDecimal("0.1");
+    private static final BigDecimal DIFF_STANDARD = new BigDecimal("0.01");
 
     private MarketType marketType;
 
@@ -46,7 +47,7 @@ public class PriceCompareResult {
 
     @Getter
     @Builder
-    private static class MarketPriceInfo {
+    public static class MarketPriceInfo {
 
         private CoinClientType coinClientType;
 

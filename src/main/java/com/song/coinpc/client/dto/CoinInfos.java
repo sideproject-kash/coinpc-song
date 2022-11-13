@@ -1,6 +1,5 @@
 package com.song.coinpc.client.dto;
 
-import java.util.List;
 import java.util.Map;
 
 import com.song.coinpc.common.enums.MarketType;

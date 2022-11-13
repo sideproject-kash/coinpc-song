@@ -7,6 +7,7 @@ import com.song.coinpc.client.upbit.dto.UpbitPriceInfo;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
 @Builder

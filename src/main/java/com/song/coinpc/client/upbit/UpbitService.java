@@ -34,8 +34,10 @@ public class UpbitService implements CoinMarketService {
 
         Map<MarketType, CoinInfo> coinInfoMap = upbitClient.getPriceInfo(markets)
                                                            .stream()
+                                                           .filter(it -> MarketType.from(UpbitUtils.extractMarketType(it.getMarket()))
+                                                                         != MarketType.NOT_KNOWN)
                                                            .collect(Collectors.toMap(
-                                                               it -> MarketType.from(it.getMarket()),
+                                                               it -> MarketType.from(UpbitUtils.extractMarketType(it.getMarket())),
                                                                CoinInfo::from));
 
         return CoinInfos.builder()

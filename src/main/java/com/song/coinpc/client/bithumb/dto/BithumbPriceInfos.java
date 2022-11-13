@@ -33,7 +33,6 @@ import lombok.ToString;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @JsonDeserialize(using = BithumbPriceInfosDeserializer.class)
 public class BithumbPriceInfos {
     private Map<String, BithumbPriceInfo> bithumbPriceInfoMap;
