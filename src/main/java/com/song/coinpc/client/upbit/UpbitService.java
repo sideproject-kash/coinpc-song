@@ -12,6 +12,7 @@ import com.song.coinpc.client.CoinMarketService;
 import com.song.coinpc.client.dto.CoinInfo;
 import com.song.coinpc.client.dto.CoinInfos;
 import com.song.coinpc.client.upbit.utils.UpbitUtils;
+import com.song.coinpc.common.enums.CoinClientType;
 import com.song.coinpc.common.enums.MarketType;
 import com.song.coinpc.common.enums.PaymentCurrencyType;
 
@@ -40,5 +41,12 @@ public class UpbitService implements CoinMarketService {
         return CoinInfos.builder()
                         .coinInfoMap(coinInfoMap)
                         .build();
+    }
+
+
+
+    @Override
+    public CoinClientType getCoinClientType() {
+        return CoinClientType.UPBIT;
     }
 }
